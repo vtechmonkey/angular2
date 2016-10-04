@@ -1,0 +1,9 @@
+<h3>Top Activities</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let activity of activities" (click)="gotoDetail(activity)" class="col-1-4">
+    <div class="module activity">
+      <h4>{{activity.name}}</h4>
+    </div>
+  </div>
+</div>
+<activity-search></activity-search>

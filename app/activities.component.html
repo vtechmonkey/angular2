@@ -1,0 +1,21 @@
+<h2>My Activites</h2>
+<div>
+	<label>Activity name: </label> <input #activityName />
+	<button (click)="add(activityName.value); activityName.value=''">Add</button>
+</div>
+<ul class="activities">
+  <li *ngFor="let activity of activities" 
+  	(click)="onSelect(activity)"
+    [class.selected]="activity === selectedActivity">
+    <span class="badge">{{activity.id}}</span>
+    <span> {{activity.name}} </span>
+    <button class="delete" 
+    (click)="delete(activity); $event.stopProgagation()">x</button>
+  </li>
+</ul>
+<div *ngIf="selectedActivity">
+  <h2>
+    {{selectedActivity.name | uppercase}} looks like fun!
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
